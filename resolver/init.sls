@@ -8,7 +8,7 @@
 resolv-file:
   file.managed:
     {% if is_resolvconf_enabled %}
-    - name: /etc/resolvconf/resolv.conf.d/base
+    - name: /etc/resolvconf/resolv.conf.d/head
     {% else %}
     - name: /etc/resolv.conf
     {% endif %}
