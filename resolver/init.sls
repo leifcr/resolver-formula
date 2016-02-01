@@ -30,3 +30,10 @@ resolv-head-file:
         searchpaths: {{ salt['pillar.get']('resolver:head:searchpaths', []) }}
         options: {{ salt['pillar.get']('resolver:head:options', []) }}
         domain: {{ salt['pillar.get']('resolver:head:domain', []) }}
+
+resolv-update:
+  cmd.run:
+    - name: resolvconf -u
+    - onchanges:
+      - file: resolv-head-file
+      - file: resolv-base-file
