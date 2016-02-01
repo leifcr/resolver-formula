@@ -1,11 +1,18 @@
 resolver:
-  searchpaths:
-    - example.com
-    - example.org
-  nameservers:
-    - 8.8.8.8
-    - 4.4.4.4
-  options:
-    - 'rotate'
-    - 'timeout:1'
-    - 'attempts:5'
+  base:
+    searchpaths:
+      - example.org
+    nameservers:
+      - 8.8.8.8
+      - 4.4.4.4
+    options:
+      - 'rotate'
+      - 'timeout:1'
+  head:
+    searchpaths:
+      - example.com
+      - otherdomain.org
+    nameservers:
+      - 10.0.0.1
+    options:
+      - 'attempts:5'
