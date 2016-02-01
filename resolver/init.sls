@@ -13,9 +13,9 @@ resolv-base-file:
     - template: jinja
     - defaults:
         nameservers: {{ salt['pillar.get']('resolver:base:nameservers', ['8.8.8.8','8.8.4.4']) }}
-        searchpaths: {{ salt['pillar.get']('resolver:base:searchpaths', [salt['grains.get']('domain'),]) }}
+        searchpaths: {{ salt['pillar.get']('resolver:base:searchpaths') }}
         options: {{ salt['pillar.get']('resolver:base:options', []) }}
-        domain: {{ salt['pillar.get']('resolver:base:domain', [salt['grains.get']('domain'),]) }}
+        domain: {{ salt['pillar.get']('resolver:base:domain') }}
 
 resolv-head-file:
   file.managed:
@@ -27,9 +27,9 @@ resolv-head-file:
     - template: jinja
     - defaults:
         nameservers: {{ salt['pillar.get']('resolver:head:nameservers', []) }}
-        searchpaths: {{ salt['pillar.get']('resolver:head:searchpaths', []) }}
+        searchpaths: {{ salt['pillar.get']('resolver:head:searchpaths') }}
         options: {{ salt['pillar.get']('resolver:head:options', []) }}
-        domain: {{ salt['pillar.get']('resolver:head:domain', []) }}
+        domain: {{ salt['pillar.get']('resolver:head:domain') }}
 
 resolv-update:
   cmd.run:
